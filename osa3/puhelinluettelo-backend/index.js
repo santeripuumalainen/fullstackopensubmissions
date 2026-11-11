@@ -1,5 +1,7 @@
+require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
+const Person = require('./models/person')
 
 const app = express()
 
@@ -24,6 +26,8 @@ app.use(
   )
 )
 
+// Kovakoodattu lista on vielä reittien /info, GET /:id ja DELETE käytössä.
+// Ne siirretään tietokantaan tehtävissä 3.15 ja 3.18.
 let persons = [
   {
     id: '1',
@@ -48,7 +52,9 @@ let persons = [
 ]
 
 app.get('/api/persons', (request, response) => {
-  response.json(persons)
+  Person.find({}).then((persons) => {
+    response.json(persons)
+  })
 })
 
 app.get('/info', (request, response) => {
@@ -73,8 +79,6 @@ app.delete('/api/persons/:id', (request, response) => {
   response.status(204).end()
 })
 
-const generateId = () => String(Math.floor(Math.random() * 1_000_000_000))
-
 app.post('/api/persons', (request, response) => {
   const body = request.body
 
@@ -82,18 +86,15 @@ app.post('/api/persons', (request, response) => {
     return response.status(400).json({ error: 'name or number missing' })
   }
 
-  if (persons.some((p) => p.name === body.name)) {
-    return response.status(400).json({ error: 'name must be unique' })
-  }
-
-  const person = {
-    id: generateId(),
+  // 3.14: nimen yksikäsitteisyyttä ei tässä vaiheessa tarkasteta
+  const person = new Person({
     name: body.name,
     number: body.number
-  }
+  })
 
-  persons = persons.concat(person)
-  response.json(person)
+  person.save().then((savedPerson) => {
+    response.json(savedPerson)
+  })
 })
 
 const PORT = process.env.PORT || 3001
