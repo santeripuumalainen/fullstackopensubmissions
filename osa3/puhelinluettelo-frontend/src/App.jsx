@@ -72,11 +72,17 @@ const App = () => {
       number: newNumber
     }
 
-    personService.create(personObject).then((returnedPerson) => {
-      setPersons(persons.concat(returnedPerson))
-      notify(`Added ${returnedPerson.name}`)
-      resetForm()
-    })
+    personService
+      .create(personObject)
+      .then((returnedPerson) => {
+        setPersons(persons.concat(returnedPerson))
+        notify(`Added ${returnedPerson.name}`)
+        resetForm()
+      })
+      .catch((error) => {
+        // 3.19: näytetään backendin palauttama virheilmoitus
+        notify(error.response?.data?.error ?? error.message, 'error')
+      })
   }
 
   const deletePerson = (person) => {
