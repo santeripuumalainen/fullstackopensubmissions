@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "build:ui": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && cd ../puhelinluettelo-frontend && npm run build && node -e \"require('fs').cpSync('dist','../puhelinluettelo-backend/dist',{recursive:true})\"",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
   "keywords": [],
   "author": "",

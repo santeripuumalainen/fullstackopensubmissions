@@ -1,3 +1,6 @@
 node_modules
 dist
 .DS_Store
+
+# Renderiin vietävän backendin frontend-build täytyy olla repossa (3.11)
+!osa3/puhelinluettelo-backend/dist
