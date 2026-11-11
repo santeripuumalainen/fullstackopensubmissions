@@ -10,4 +10,5 @@ Jokaisella osalla on oma hakemistonsa, ja osan tehtäväsarjat ovat sen alihakem
 - [osa2/kurssitiedot](osa2/kurssitiedot): tehtävät 2.1–2.5 (jatkoa osan 1 kurssitiedoille)
 - [osa2/puhelinluettelo](osa2/puhelinluettelo): tehtävät 2.6–2.17
 - [osa3/puhelinluettelo-backend](osa3/puhelinluettelo-backend): tehtävät 3.1–3.11
+  - Sovellus internetissä: https://fullstackopensubmissions-82h7.onrender.com/
 - [osa3/puhelinluettelo-frontend](osa3/puhelinluettelo-frontend): osan 2 puhelinluettelon frontend, muokattu käyttämään backendia (3.9)
