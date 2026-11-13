@@ -11,4 +11,5 @@ Jokaisella osalla on oma hakemistonsa, ja osan tehtäväsarjat ovat sen alihakem
 - [osa2/puhelinluettelo](osa2/puhelinluettelo): tehtävät 2.6–2.17
 - [osa3/puhelinluettelo-backend](osa3/puhelinluettelo-backend): tehtävät 3.1–3.16, 3.19, 3.21 ja 3.22
   - Sovellus internetissä: https://fullstackopensubmissions-82h7.onrender.com/
+- [osa4/bloglist](osa4/bloglist): tehtävät 4.1–4.4, 4.8–4.10, 4.13, 4.15 ja 4.17–4.19
 - [osa3/puhelinluettelo-frontend](osa3/puhelinluettelo-frontend): osan 2 puhelinluettelon frontend, muokattu käyttämään backendia (3.9)
