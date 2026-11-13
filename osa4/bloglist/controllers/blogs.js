@@ -45,4 +45,23 @@ blogsRouter.delete('/:id', async (request, response) => {
   response.status(204).end()
 })
 
+// Osan 5 frontendin tykkäystä varten (tehtävä 5.8)
+blogsRouter.put('/:id', async (request, response) => {
+  const { title, author, url, likes } = request.body
+
+  const blog = await Blog.findById(request.params.id)
+  if (!blog) {
+    return response.status(404).end()
+  }
+
+  blog.title = title
+  blog.author = author
+  blog.url = url
+  blog.likes = likes
+
+  const updatedBlog = await blog.save()
+  await updatedBlog.populate('user', { username: 1, name: 1 })
+  response.json(updatedBlog)
+})
+
 module.exports = blogsRouter

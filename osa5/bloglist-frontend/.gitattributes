@@ -1,0 +1,3 @@
+# ESLintin linebreak-style: unix vaatii LF-rivinvaihdot myös Windowsissa
+*.js text eol=lf
+*.jsx text eol=lf
